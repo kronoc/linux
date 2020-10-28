@@ -1232,6 +1232,7 @@ static int m88ds3103_get_frontend(struct dvb_frontend *fe,
 		}
 
 		c->modulation = QPSK;
+		c->rolloff = ROLLOFF_35;
 
 		break;
 	case SYS_DVBS2:
@@ -1708,7 +1709,7 @@ static const struct dvb_frontend_ops m88ds3103_ops = {
 		.frequency_min_hz =  950 * MHz,
 		.frequency_max_hz = 2150 * MHz,
 		.frequency_tolerance_hz = 5 * MHz,
-		.symbol_rate_min =  1000000,
+		.symbol_rate_min =  100000,
 		.symbol_rate_max = 45000000,
 		.caps = FE_CAN_INVERSION_AUTO |
 			FE_CAN_FEC_1_2 |
